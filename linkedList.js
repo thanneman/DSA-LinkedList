@@ -197,16 +197,17 @@ function display(list) {
     }
 }
   
-function size(list) {
-    let currNode = list.head;
-    let i = 0;
-  
-    while (currNode.next !== null) {
-      currNode = currNode.next;
-      i++;
-    }
-    console.log(i);
-    return i;
+function size(list){
+
+  let curr = list.head
+  let counter = 0
+
+  while(curr !== null){
+    curr = curr.next
+    counter++
+  }
+
+  return counter
 }
   
   
@@ -306,28 +307,21 @@ function ThirdFromEnd(list) {
     }
 }
 
-// Middle of a list
-function middleList(list) {
+// Find the middle element
+function middleOfList(list){
 
-    let mid = size(list) / 2;
-    mid = Math.round(mid);
-  
-    let currNode = list.head;
-    let prevNode = list.head;
-    let i = 0;
-  
-    while (i !== mid) {
-      if (!currNode.next) {
-        return;
-      }
-      prevNode = currNode;
-      currNode = currNode.next;
-      i++;
+  let curr = list.head
+  let middleElement = list.head
+  let thisSize = size(list)
+
+  if(thisSize !== 0){
+    let middle = Math.floor(thisSize/2)
+    
+    for(let i=0; i<middle; i++){
+      curr = curr.next
     }
-    if (currNode === null) {
-      return;
-    }
-  
-    let middle = prevNode;
-    return console.log(list.find(middle.value));
+    middleElement = curr
+  }
+
+  return middleElement
 }
