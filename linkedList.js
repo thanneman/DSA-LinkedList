@@ -1,35 +1,40 @@
-// Create a linked list class
+// implementation of a generic node class
 class _Node {
+    // constructor - holds the data and pointer
     constructor(value, next) {
         this.value = value;
         this.next = next;
     }
 };
 
+// create LL class
 class LinkedList {
+    // head to indicate the beginning of the list
     constructor() {
       this.head = null;
-      this.tail = null;
     };
-  
+    
+    // insert at first position (head)
     insertFirst(item) {
       this.head = new _Node(item, this.head);
     };
   
+    // insert in last position
     insertLast(item) {
+      // if head is empty made item first (head)
       if (this.head === null) {
-        this.insertFirst(item);
-        return;
+          this.insertFirst(item);
       }
-  
-      let tempNode = this.head;
-  
-      while (tempNode.next !== null) {
-        tempNode = tempNode.next;
-      };
-  
-      tempNode.next = new _Node(item, null);
-    };
+      // move through the list until you reach the end of the list
+      else {
+          let tempNode = this.head;
+          while (tempNode.next !== null) {
+              tempNode = tempNode.next;
+          }
+          // set the end node's next pointer to the new node
+          tempNode.next = new _Node(item, null);
+      }
+    }
   
     insertBefore(nextNode, item) {
       if (this.head === null) {
@@ -43,10 +48,7 @@ class LinkedList {
           prevNode = currNode;
           currNode = currNode.next;
         }
-        //   if (currNode === null) {
-        //     console.log('Item not found on list');
-        //     return;
-        //   }
+
         prevNode.next = new _Node(item, currNode);
 
       }
