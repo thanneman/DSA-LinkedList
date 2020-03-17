@@ -145,15 +145,13 @@ class LinkedList {
     }
   
     // prints the list items 
-    printList() {
-      var curr = this.head;
-      var str = "";
+    printListDataData() {
+      let current = this.head;
   
-      while (curr) {
-        str = str + curr.value + " ";
-        curr = curr.next;
+      while (current) {
+        console.log(current.data);
+        current = current.next;
       }
-      console.log(str);
     }
   
   };
@@ -167,25 +165,25 @@ function main() {
     SLL.insertFirst('Helo');
     SLL.insertFirst('Husker');
     SLL.insertFirst('Starbuck');
-    SLL.printList();
+    SLL.printListData();
 
     SLL.insertFirst('Tauhida');
-    SLL.printList();
+    SLL.printListData();
 
     SLL.remove('Husker');
-    SLL.printList();
+    SLL.printListData();
 
     SLL.insertBefore('Boomer', 'Athena');
-    SLL.printList();
+    SLL.printListData();
 
     SLL.insertAfter('Helo', 'Hotdog');
-    SLL.printList();
+    SLL.printListData();
 
     SLL.insertAt('Kat', 3);
-    SLL.printList();
+    SLL.printListData();
 
     SLL.remove('Tauhida');
-    SLL.printList();
+    SLL.printListData();
 }
 main();
 
