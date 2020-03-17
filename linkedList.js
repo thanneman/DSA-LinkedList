@@ -1,7 +1,7 @@
 // implementation of a generic node class
 class _Node {
     // constructor - holds the data and pointer
-    constructor(value, next) {
+    constructor(data, next = null) {
         this.value = value;
         this.next = next;
     }
